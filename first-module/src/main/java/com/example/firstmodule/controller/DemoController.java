@@ -1,5 +1,6 @@
 package com.example.firstmodule.controller;
 
+import com.example.commonmodule.enums.CodeEnum;
 import com.example.firstmodule.service.DemoService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +21,10 @@ public class DemoController {
     @GetMapping("/find")
     public String find(){
         return demoService.find();
+    }
+
+    @GetMapping("/exception")
+    public String exception(){
+        return demoService.exception();
     }
 }
