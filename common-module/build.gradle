@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.14'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id "java-library" // java-library 플러그인 추가
 }
 
 group = 'com.example'
@@ -23,9 +24,12 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    runtimeOnly 'com.h2database:h2'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    api 'org.springframework.boot:spring-boot-starter-data-jpa' // api 키워드를 사용하여 의존성 추가
 }
 
 tasks.named('test') {
