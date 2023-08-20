@@ -7,6 +7,7 @@ import com.example.commonmodule.service.CommonDemoService;
 import com.example.firstmodule.exception.CustomException;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 
@@ -14,10 +15,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DemoService {
 
+    @Value("${profile-name}") // application.yml에 있는 profile-name을 가져옴
+    private String name;
+
     private final CommonDemoService commonDemoService;
     private final MemberRepository memberRepository;
 
     public String save(){
+        System.out.println("env profile : " + name);
         memberRepository.save(Member.builder()
                                     .name(Thread.currentThread().getName())
                                     .build());
