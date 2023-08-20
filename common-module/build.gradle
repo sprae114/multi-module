@@ -35,3 +35,14 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.bootJar {
+    enabled = false
+}
+
+tasks.jar {
+    enabled = true
+}
+
+// 터미널 실행 명령어
+//./gradlew clean :first-module:buildNeeded --stacktrace --info --refresh-dependencies -x test
